@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <% include ../partials/header.ejs %>
+</head>
+
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row" layout-align="center">
+                <!-- Title -->
+                <span class="mdl-layout-title">Expence Manager</span>
+            </div>
+        </header>
+    </div>
+    <div style="height:75px"></div>
+    <div class="container mb40 singnUp" ng-app="flip" ng-controller="signInsingUp">
+        <div class="flip">
+            <div class="card" ng-class="{'flipped':isFlipped}">
+                <div class="face front">
+                    <form name="signIn" novalidate>
+                        <h4>Sing in</h4>
+                        <div layout="row">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                                <input class="mdl-textfield__input" type="text" id="sample1" ng-model="User.Name"/>
+                                <label class="mdl-textfield__label" for="sample1">User Name</label>
+                            </div>
+                        </div>
+                        <div layout="row">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                                <input class="mdl-textfield__input" type="text" id="sample2" ng-model="User.Password" />
+                                <label class="mdl-textfield__label" for="sample2">Password</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="face back">
+                    <form name="signIn">
+                        <h4>Sing Up</h4>
+                        <div layout="row">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                                <input class="mdl-textfield__input" type="text" id="sample3" ng-model="User.Name1"/>
+                                <label class="mdl-textfield__label" for="sample3">User Name</label>
+                            </div>
+                        </div>
+                        <div layout="row">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                                <input class="mdl-textfield__input" type="text" id="sample4" ng-model="User.Password1" />
+                                <label class="mdl-textfield__label" for="sample4">Password</label>
+                            </div>
+                        </div>
+                        <div layout="row">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                                <input class="mdl-textfield__input" type="email" id="sample5" ng-model="User.Email" />
+                                <label class="mdl-textfield__label" for="sample5">Email</label>
+                            </div>
+                        </div>
+                        <div layout="row">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                                <input class="mdl-textfield__input" type="number" id="sample6" ng-model="User.mobile" />
+                                <label class="mdl-textfield__label" for="sample6">Contact Number</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div layout="row" layout-align="space-around center">
+                <button ng-click="flipSingIn()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                    Sing in
+                </button>
+                <button ng-click="flipSingUp()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                    Sing Up
+                </button>
+            </div>
+        </div>
+    </div>
+    <% include ../partials/footer.ejs %>
+</body>
+
+</html>

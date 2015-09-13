@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <% include ../partials/header.ejs %>
+</head>
+
+<body>
+    <section ng-controller="myCtrl">
+        <!-- Always shows a header, even in smaller screens. -->
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+            <header class="mdl-layout__header">
+                <div class="mdl-layout__header-row">
+                    <!-- Title -->
+                    <span class="mdl-layout-title">Expence Manager</span>
+                </div>
+            </header>
+            <div class="mdl-layout__drawer">
+                <span class="mdl-layout-title">Title</span>
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="">Add Expence</a>
+                    <a class="mdl-navigation__link" href="">View Expence</a>
+                    <a class="mdl-navigation__link" href="">Manage Users</a>
+                    <a class="mdl-navigation__link" href="">Transfer Amount</a>
+                    <a class="mdl-navigation__link" href="">Invest Details</a>
+                </nav>
+            </div>
+        </div>
+        <div style="height:75px"></div>
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li class="active">Investment</li>
+        </ol>
+        <div class="container mb40">
+            <div class="page-content">
+                <!-- Simple Textfield -->
+                <form action="#">
+                    <div layout="row">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                            <input class="mdl-textfield__input" type="text" id="sample1" ng-model="product.Name" />
+                            <label class="mdl-textfield__label" for="sample1">Product Name</label>
+                        </div>
+                    </div>
+                    <div layout="row">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                            <input class="mdl-textfield__input" type="number" id="sample2" ng-model="product.Price" />
+                            <label class="mdl-textfield__label" for="sample2">Product Price</label>
+                        </div>
+                    </div>
+                    <div layout="row">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                            <input class="mdl-textfield__input" type="date" id="sample3" ng-model="product.PurchaceData" />
+                            <!-- <label class="mdl-textfield__label" for="sample3">Purchase Date</label> -->
+                        </div>
+                    </div>
+                    <div layout="row">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                            <input class="mdl-textfield__input" type="text" id="sample4" ng-model="product.payee" />
+                            <label class="mdl-textfield__label" for="sample2">Product Payee</label>
+                        </div>
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <input type="checkbox" ng-model="selectAllStatus">
+                            <span>Select All</span>
+                        </li>
+                        <li class="list-group-item" ng-repeat="user in members">
+                            <input type="checkbox" ng-checked="selectAllStatus" ng-click="changeState($event)">
+                            <span>{{ user.name }}</span>
+                        </li>
+                    </ul>
+                    <div layout="row" layout-align="space-around center">
+                        <!-- Accent-colored raised button with ripple -->
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ng-click="saveData()">
+                            Save
+                        </button>
+                        <!-- MDL Spinner Component with Single Color -->
+                        <div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active hide"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <% include ../partials/footer.ejs %>
+</body>
+
+</html>

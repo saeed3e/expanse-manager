@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <% include ../partials/header.ejs %>
+</head>
+
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <!-- Title -->
+                <span class="mdl-layout-title">Expence Manager</span>
+                <!-- Add spacer, to align navigation to the right -->
+                <div class="mdl-layout-spacer"></div>
+                <nav class="mdl-navigation">
+                    <!-- Right aligned menu below button -->
+                    <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
+                        <i class="material-icons">more_vert</i>
+                    </button>
+                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+                        <li class="mdl-menu__item"><a href="addMembers.html">Add members</a></li>
+                        <li class="mdl-menu__item"><a href="viewMembers.html">View members detail</a></li>
+                        <li disabled class="mdl-menu__item">Delete members</li>
+                        <li class="mdl-menu__item">Update members profile</li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">Title</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="">Add Expence</a>
+                <a class="mdl-navigation__link" href="">View Expence</a>
+                <a class="mdl-navigation__link" href="">Manage memberss</a>
+                <a class="mdl-navigation__link" href="">Transfer Amount</a>
+                <a class="mdl-navigation__link" href="">Invest Details</a>
+            </nav>
+        </div>
+    </div>
+    <div ng-controller="myCtrl">
+        <div style="height:75px"></div>
+        <div class="mdl-progress mdl-js-progress mdl-progress__indeterminate progress-demo" ng-hide="!showLoader"></div>
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Manage members</a></li>
+            <li class="active">Add Member</li>
+        </ol>
+        <div class="container mb40">
+            <!-- <form action="/addMember" method="POST"> -->
+            <div layout="row">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                    <input class="mdl-textfield__input" type="text" id="sample1" ng-model="member.name" />
+                    <label class="mdl-textfield__label" for="sample1">Member Name</label>
+                </div>
+            </div>
+            <div layout="row">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                    <input class="mdl-textfield__input" type="email" id="sample2" ng-model="member.email" />
+                    <label class="mdl-textfield__label" for="sample2">Email</label>
+                </div>
+            </div>
+            <div layout="row">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                    <input class="mdl-textfield__input" type="number" id="sample3" ng-model="member.mobile" />
+                    <label class="mdl-textfield__label" for="sample3">Contact Number</label>
+                </div>
+            </div>
+            <div layout="row" ng-init="isEnabled=true">
+                <button ng-disabled="{{!isEnabled}}" class="mdl-button mdl-js-button mdl-button--raised" ng-class="{'mdl-js-ripple-effect mdl-button--accent':isEnabled}" ng-click="addMember()">
+                    Save
+                </button>
+            </div>
+            <!-- </form> -->
+        </div>
+    </div>
+    <% include ../partials/footer.ejs %>
+</body>
+
+</html>
