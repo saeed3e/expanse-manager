@@ -49,8 +49,12 @@ app.get('/addItemInfo', function(req, res) {
     res.render('pages/addItemInfo');
 });
 
-app.get('/addMembers', function(req, res) {
-    res.render('pages/addMembers');
+app.get('/addMember', function(req, res) {
+    res.render('pages/addMember');
+});
+
+app.get('/viewexpense', function(req, res) {
+    res.render('pages/viewexpense');
 });
 
 
