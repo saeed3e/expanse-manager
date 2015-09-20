@@ -8,17 +8,7 @@
 
 <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-        <% include ../partials/topNavigation.ejs %>    
-        <div class="mdl-layout__drawer" ng-class="{'is-visible':isEnabled}">
-            <span class="mdl-layout-title">Title</span>
-            <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="">Add Expence</a>
-                <a class="mdl-navigation__link" href="">View Expence</a>
-                <a class="mdl-navigation__link" href="">Manage Users</a>
-                <a class="mdl-navigation__link" href="">Transfer Amount</a>
-                <a class="mdl-navigation__link" href="">Invest Details</a>
-            </nav>
-        </div>
+        <% include ../partials/topNavigation.ejs %>
         <main class="mdl-layout__content">
             <div class="page-content">
                 <div ng-controller="myCtrl">
